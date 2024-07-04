@@ -35,6 +35,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Widget container;
     switch (currentPage) {
+          case DrawerSections.Home:
+        container = HomeContainer();
+        break;
       case DrawerSections.Register:
         container = SignUpScreen(authService: _authService);
         break;
@@ -81,6 +84,7 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.only(top: 15),
       child: Column(
         children: [
+              menuItem(0, "Home", Icons.home, currentPage == DrawerSections.Home),
           menuItem(1, "Register", Icons.dashboard_outlined,
               currentPage == DrawerSections.Register),
           menuItem(2, "Signin", Icons.people_alt_outlined,
@@ -100,6 +104,9 @@ class _HomePageState extends State<HomePage> {
           Navigator.pop(context);
           setState(() {
             switch (id) {
+                 case 0:
+                currentPage = DrawerSections.Home;
+                break;
               case 1:
                 currentPage = DrawerSections.Register;
                 break;
@@ -142,6 +149,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 enum DrawerSections {
+    Home,
   Register,
   Signin,
   MyCalculators,
