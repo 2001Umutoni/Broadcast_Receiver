@@ -146,3 +146,14 @@ enum DrawerSections {
   Signin,
   MyCalculators,
 }
+class HomeContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        "Welcome to Ange Tech Home",
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
